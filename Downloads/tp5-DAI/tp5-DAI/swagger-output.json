@@ -1,0 +1,251 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Mini Pokédex API",
+    "description": "Servidor proxy que expone endpoints de PokéAPI para la aplicación Mini Pokédex Web. Permite consultar datos de Pokémon, tipos, habilidades, especies, encuentros y generaciones.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "TP5 DAI"
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Pokemon",
+      "description": "Endpoints para consultar datos de Pokémon individuales o listas"
+    },
+    {
+      "name": "Tipos",
+      "description": "Endpoints para consultar tipos de Pokémon (fire, water, grass, etc.)"
+    },
+    {
+      "name": "Habilidades",
+      "description": "Endpoints para consultar habilidades de los Pokémon"
+    },
+    {
+      "name": "Especies",
+      "description": "Endpoints para consultar datos de especies Pokémon"
+    },
+    {
+      "name": "Encuentros",
+      "description": "Endpoints para consultar ubicaciones de encuentro de Pokémon"
+    },
+    {
+      "name": "Generaciones",
+      "description": "Endpoints para consultar información por generación"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/api/pokemon/{name}": {
+      "get": {
+        "tags": [
+          "Pokemon"
+        ],
+        "summary": "Obtiene un Pokémon por nombre o ID",
+        "description": "Devuelve nombre, imagen, tipos, peso y altura del Pokémon indicado.",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Nombre o ID del Pokémon (ej: pikachu, 25)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Datos del Pokémon obtenidos correctamente."
+          },
+          "404": {
+            "description": "Pokémon no encontrado."
+          },
+          "500": {
+            "description": "Error interno del servidor."
+          }
+        }
+      }
+    },
+    "/api/pokemon": {
+      "get": {
+        "tags": [
+          "Pokemon"
+        ],
+        "summary": "Obtiene una lista paginada de Pokémon",
+        "description": "Devuelve un listado de Pokémon. Se puede controlar con los parámetros limit y offset.",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Cantidad de Pokémon a devolver (por defecto 20)",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Posición desde la que empezar la lista (por defecto 0)",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de Pokémon obtenida correctamente."
+          },
+          "500": {
+            "description": "Error interno del servidor."
+          }
+        }
+      }
+    },
+    "/api/type/{name}": {
+      "get": {
+        "tags": [
+          "Tipos"
+        ],
+        "summary": "Obtiene información de un tipo de Pokémon",
+        "description": "Devuelve datos del tipo indicado, incluyendo lista de Pokémon que pertenecen a ese tipo y relaciones de daño.",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Nombre del tipo (ej: fire, water, grass)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Datos del tipo obtenidos correctamente."
+          },
+          "404": {
+            "description": "Tipo no encontrado."
+          },
+          "500": {
+            "description": "Error interno del servidor."
+          }
+        }
+      }
+    },
+    "/api/ability/{name}": {
+      "get": {
+        "tags": [
+          "Habilidades"
+        ],
+        "summary": "Obtiene información de una habilidad",
+        "description": "Devuelve la descripción y datos de la habilidad indicada.",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Nombre de la habilidad (ej: blaze, torrent, overgrow)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Datos de la habilidad obtenidos correctamente."
+          },
+          "404": {
+            "description": "Habilidad no encontrada."
+          },
+          "500": {
+            "description": "Error interno del servidor."
+          }
+        }
+      }
+    },
+    "/api/pokemon-species/{name}": {
+      "get": {
+        "tags": [
+          "Especies"
+        ],
+        "summary": "Obtiene datos de la especie de un Pokémon",
+        "description": "Devuelve descripción de la Pokédex, generación de introducción y referencia a la cadena evolutiva.",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Nombre de la especie (ej: bulbasaur, charmander)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Datos de la especie obtenidos correctamente."
+          },
+          "404": {
+            "description": "Especie no encontrada."
+          },
+          "500": {
+            "description": "Error interno del servidor."
+          }
+        }
+      }
+    },
+    "/api/encounters/{name}": {
+      "get": {
+        "tags": [
+          "Encuentros"
+        ],
+        "summary": "Obtiene las ubicaciones donde aparece un Pokémon",
+        "description": "Devuelve la lista de zonas del mapa en los juegos donde puede encontrarse el Pokémon indicado.",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Nombre del Pokémon (ej: pikachu)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de encuentros obtenida correctamente."
+          },
+          "404": {
+            "description": "Pokémon no encontrado."
+          },
+          "500": {
+            "description": "Error interno del servidor."
+          }
+        }
+      }
+    },
+    "/api/generation/{id}": {
+      "get": {
+        "tags": [
+          "Generaciones"
+        ],
+        "summary": "Obtiene información de una generación de Pokémon",
+        "description": "Devuelve los Pokémon y movimientos introducidos en la generación indicada.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "Número de generación del 1 al 9 (ej: 1)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Datos de la generación obtenidos correctamente."
+          },
+          "404": {
+            "description": "Generación no encontrada."
+          },
+          "500": {
+            "description": "Error interno del servidor."
+          }
+        }
+      }
+    }
+  }
+}
