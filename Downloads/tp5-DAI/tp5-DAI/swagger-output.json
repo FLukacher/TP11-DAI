@@ -46,25 +46,341 @@
           "Pokemon"
         ],
         "summary": "Obtiene un Pokémon por nombre o ID",
-        "description": "Devuelve nombre, imagen, tipos, peso y altura del Pokémon indicado.",
+        "description": "Devuelve los datos completos de un Pokémon: nombre, imagen, tipos, peso y altura. Se puede buscar por nombre (ej: pikachu) o por ID numérico (ej: 25).",
         "parameters": [
           {
             "name": "name",
             "in": "path",
             "required": true,
             "type": "string",
-            "description": "Nombre o ID del Pokémon (ej: pikachu, 25)"
+            "description": "Nombre o ID del Pokémon. Ejemplos: pikachu, bulbasaur, 25, 1"
           }
         ],
         "responses": {
           "200": {
-            "description": "Datos del Pokémon obtenidos correctamente."
+            "description": "Datos del Pokémon obtenidos correctamente.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "integer"
+                        },
+                        "example": {
+                          "type": "number",
+                          "example": 25
+                        }
+                      }
+                    },
+                    "name": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "pikachu"
+                        }
+                      }
+                    },
+                    "height": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "integer"
+                        },
+                        "example": {
+                          "type": "number",
+                          "example": 4
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Altura en decímetros"
+                        }
+                      }
+                    },
+                    "weight": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "integer"
+                        },
+                        "example": {
+                          "type": "number",
+                          "example": 60
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Peso en hectogramos"
+                        }
+                      }
+                    },
+                    "sprites": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "object"
+                        },
+                        "properties": {
+                          "type": "object",
+                          "properties": {
+                            "front_default": {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "string",
+                                  "example": "string"
+                                },
+                                "example": {
+                                  "type": "string",
+                                  "example": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "types": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "array"
+                        },
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "object"
+                            },
+                            "properties": {
+                              "type": "object",
+                              "properties": {
+                                "slot": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "example": "integer"
+                                    },
+                                    "example": {
+                                      "type": "number",
+                                      "example": 1
+                                    }
+                                  }
+                                },
+                                "type": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "example": "object"
+                                    },
+                                    "properties": {
+                                      "type": "object",
+                                      "properties": {
+                                        "name": {
+                                          "type": "object",
+                                          "properties": {
+                                            "type": {
+                                              "type": "string",
+                                              "example": "string"
+                                            },
+                                            "example": {
+                                              "type": "string",
+                                              "example": "electric"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "type": "object",
+                                          "properties": {
+                                            "type": {
+                                              "type": "string",
+                                              "example": "string"
+                                            },
+                                            "example": {
+                                              "type": "string",
+                                              "example": "https://pokeapi.co/api/v2/type/13/"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "abilities": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "array"
+                        },
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "object"
+                            },
+                            "properties": {
+                              "type": "object",
+                              "properties": {
+                                "ability": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "example": "object"
+                                    },
+                                    "properties": {
+                                      "type": "object",
+                                      "properties": {
+                                        "name": {
+                                          "type": "object",
+                                          "properties": {
+                                            "type": {
+                                              "type": "string",
+                                              "example": "string"
+                                            },
+                                            "example": {
+                                              "type": "string",
+                                              "example": "static"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "type": "object",
+                                          "properties": {
+                                            "type": {
+                                              "type": "string",
+                                              "example": "string"
+                                            },
+                                            "example": {
+                                              "type": "string",
+                                              "example": "https://pokeapi.co/api/v2/ability/9/"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "is_hidden": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "example": "boolean"
+                                    },
+                                    "example": {
+                                      "type": "boolean",
+                                      "example": false
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
           },
           "404": {
-            "description": "Pokémon no encontrado."
+            "description": "Pokémon no encontrado. El nombre o ID ingresado no existe en la Pokédex.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "Pokémon no encontrado"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
           },
           "500": {
-            "description": "Error interno del servidor."
+            "description": "Error interno del servidor al comunicarse con PokéAPI.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "Error interno del servidor"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
           }
         }
       }
@@ -75,29 +391,175 @@
           "Pokemon"
         ],
         "summary": "Obtiene una lista paginada de Pokémon",
-        "description": "Devuelve un listado de Pokémon. Se puede controlar con los parámetros limit y offset.",
+        "description": "Devuelve un listado de Pokémon con su nombre y URL de detalle. La cantidad y posición se controlan con los parámetros limit y offset.",
         "parameters": [
           {
             "name": "limit",
             "in": "query",
-            "description": "Cantidad de Pokémon a devolver (por defecto 20)",
+            "description": "Cantidad de Pokémon a devolver. Por defecto: 20. Máximo recomendado: 100.",
             "required": false,
-            "type": "integer"
+            "type": "integer",
+            "example": 20
           },
           {
             "name": "offset",
             "in": "query",
-            "description": "Posición desde la que empezar la lista (por defecto 0)",
+            "description": "Posición desde la que empezar la lista (para paginación). Por defecto: 0.",
             "required": false,
-            "type": "integer"
+            "type": "integer",
+            "example": 0
           }
         ],
         "responses": {
           "200": {
-            "description": "Lista de Pokémon obtenida correctamente."
+            "description": "Lista de Pokémon obtenida correctamente.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "integer"
+                        },
+                        "example": {
+                          "type": "number",
+                          "example": 1302
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Total de Pokémon disponibles en la API"
+                        }
+                      }
+                    },
+                    "next": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "https://pokeapi.co/api/v2/pokemon?offset=20&limit=20"
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "URL de la siguiente página (null si no hay más)"
+                        }
+                      }
+                    },
+                    "previous": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {},
+                        "description": {
+                          "type": "string",
+                          "example": "URL de la página anterior (null si es la primera)"
+                        }
+                      }
+                    },
+                    "results": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "array"
+                        },
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "object"
+                            },
+                            "properties": {
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "example": "string"
+                                    },
+                                    "example": {
+                                      "type": "string",
+                                      "example": "bulbasaur"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "example": "string"
+                                    },
+                                    "example": {
+                                      "type": "string",
+                                      "example": "https://pokeapi.co/api/v2/pokemon/1/"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
           },
           "500": {
-            "description": "Error interno del servidor."
+            "description": "Error interno del servidor.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "Error interno del servidor"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
           }
         }
       }
@@ -108,25 +570,321 @@
           "Tipos"
         ],
         "summary": "Obtiene información de un tipo de Pokémon",
-        "description": "Devuelve datos del tipo indicado, incluyendo lista de Pokémon que pertenecen a ese tipo y relaciones de daño.",
+        "description": "Devuelve datos del tipo indicado: lista de Pokémon que pertenecen a ese tipo, relaciones de daño (a qué tipos es efectivo, débil, inmune) y más.",
         "parameters": [
           {
             "name": "name",
             "in": "path",
             "required": true,
             "type": "string",
-            "description": "Nombre del tipo (ej: fire, water, grass)"
+            "description": "Nombre del tipo en inglés. Ejemplos: fire, water, grass, electric, psychic, dragon"
           }
         ],
         "responses": {
           "200": {
-            "description": "Datos del tipo obtenidos correctamente."
+            "description": "Datos del tipo obtenidos correctamente.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "integer"
+                        },
+                        "example": {
+                          "type": "number",
+                          "example": 10
+                        }
+                      }
+                    },
+                    "name": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "fire"
+                        }
+                      }
+                    },
+                    "damage_relations": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "object"
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Relaciones de daño del tipo con otros tipos"
+                        },
+                        "properties": {
+                          "type": "object",
+                          "properties": {
+                            "double_damage_to": {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "string",
+                                  "example": "array"
+                                },
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "example": "object"
+                                    },
+                                    "properties": {
+                                      "type": "object",
+                                      "properties": {
+                                        "name": {
+                                          "type": "object",
+                                          "properties": {
+                                            "type": {
+                                              "type": "string",
+                                              "example": "string"
+                                            },
+                                            "example": {
+                                              "type": "string",
+                                              "example": "grass"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "half_damage_to": {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "string",
+                                  "example": "array"
+                                },
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "example": "object"
+                                    },
+                                    "properties": {
+                                      "type": "object",
+                                      "properties": {
+                                        "name": {
+                                          "type": "object",
+                                          "properties": {
+                                            "type": {
+                                              "type": "string",
+                                              "example": "string"
+                                            },
+                                            "example": {
+                                              "type": "string",
+                                              "example": "fire"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "double_damage_from": {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "string",
+                                  "example": "array"
+                                },
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "example": "object"
+                                    },
+                                    "properties": {
+                                      "type": "object",
+                                      "properties": {
+                                        "name": {
+                                          "type": "object",
+                                          "properties": {
+                                            "type": {
+                                              "type": "string",
+                                              "example": "string"
+                                            },
+                                            "example": {
+                                              "type": "string",
+                                              "example": "water"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "pokemon": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "array"
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Lista de Pokémon de este tipo"
+                        },
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "object"
+                            },
+                            "properties": {
+                              "type": "object",
+                              "properties": {
+                                "pokemon": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "example": "object"
+                                    },
+                                    "properties": {
+                                      "type": "object",
+                                      "properties": {
+                                        "name": {
+                                          "type": "object",
+                                          "properties": {
+                                            "type": {
+                                              "type": "string",
+                                              "example": "string"
+                                            },
+                                            "example": {
+                                              "type": "string",
+                                              "example": "charmander"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "type": "object",
+                                          "properties": {
+                                            "type": {
+                                              "type": "string",
+                                              "example": "string"
+                                            },
+                                            "example": {
+                                              "type": "string",
+                                              "example": "https://pokeapi.co/api/v2/pokemon/4/"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
           },
           "404": {
-            "description": "Tipo no encontrado."
+            "description": "Tipo no encontrado.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "Tipo no encontrado"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
           },
           "500": {
-            "description": "Error interno del servidor."
+            "description": "Error interno del servidor.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "Error interno del servidor"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
           }
         }
       }
@@ -137,25 +895,288 @@
           "Habilidades"
         ],
         "summary": "Obtiene información de una habilidad",
-        "description": "Devuelve la descripción y datos de la habilidad indicada.",
+        "description": "Devuelve la descripción, efecto y datos de la habilidad indicada, incluyendo los Pokémon que pueden tenerla.",
         "parameters": [
           {
             "name": "name",
             "in": "path",
             "required": true,
             "type": "string",
-            "description": "Nombre de la habilidad (ej: blaze, torrent, overgrow)"
+            "description": "Nombre de la habilidad en inglés. Ejemplos: blaze, torrent, overgrow, static, levitate"
           }
         ],
         "responses": {
           "200": {
-            "description": "Datos de la habilidad obtenidos correctamente."
+            "description": "Datos de la habilidad obtenidos correctamente.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "integer"
+                        },
+                        "example": {
+                          "type": "number",
+                          "example": 66
+                        }
+                      }
+                    },
+                    "name": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "blaze"
+                        }
+                      }
+                    },
+                    "effect_entries": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "array"
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Descripción del efecto de la habilidad"
+                        },
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "object"
+                            },
+                            "properties": {
+                              "type": "object",
+                              "properties": {
+                                "effect": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "example": "string"
+                                    },
+                                    "example": {
+                                      "type": "string",
+                                      "example": "When the Pokémon has 1/3 or less of its HP remaining, its fire-type moves do 1.5x more damage."
+                                    }
+                                  }
+                                },
+                                "short_effect": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "example": "string"
+                                    },
+                                    "example": {
+                                      "type": "string",
+                                      "example": "Strengthens fire moves to 1.5× their power when the user has 1/3 or less of its maximum HP."
+                                    }
+                                  }
+                                },
+                                "language": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "example": "object"
+                                    },
+                                    "properties": {
+                                      "type": "object",
+                                      "properties": {
+                                        "name": {
+                                          "type": "object",
+                                          "properties": {
+                                            "type": {
+                                              "type": "string",
+                                              "example": "string"
+                                            },
+                                            "example": {
+                                              "type": "string",
+                                              "example": "en"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "pokemon": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "array"
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Pokémon que pueden tener esta habilidad"
+                        },
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "object"
+                            },
+                            "properties": {
+                              "type": "object",
+                              "properties": {
+                                "pokemon": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "example": "object"
+                                    },
+                                    "properties": {
+                                      "type": "object",
+                                      "properties": {
+                                        "name": {
+                                          "type": "object",
+                                          "properties": {
+                                            "type": {
+                                              "type": "string",
+                                              "example": "string"
+                                            },
+                                            "example": {
+                                              "type": "string",
+                                              "example": "charmander"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "type": "object",
+                                          "properties": {
+                                            "type": {
+                                              "type": "string",
+                                              "example": "string"
+                                            },
+                                            "example": {
+                                              "type": "string",
+                                              "example": "https://pokeapi.co/api/v2/pokemon/4/"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "is_hidden": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "example": "boolean"
+                                    },
+                                    "example": {
+                                      "type": "boolean",
+                                      "example": false
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
           },
           "404": {
-            "description": "Habilidad no encontrada."
+            "description": "Habilidad no encontrada.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "Habilidad no encontrada"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
           },
           "500": {
-            "description": "Error interno del servidor."
+            "description": "Error interno del servidor.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "Error interno del servidor"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
           }
         }
       }
@@ -166,25 +1187,315 @@
           "Especies"
         ],
         "summary": "Obtiene datos de la especie de un Pokémon",
-        "description": "Devuelve descripción de la Pokédex, generación de introducción y referencia a la cadena evolutiva.",
+        "description": "Devuelve la descripción de la Pokédex, la generación en la que fue introducido, si es legendario o mítico, y la referencia a su cadena evolutiva.",
         "parameters": [
           {
             "name": "name",
             "in": "path",
             "required": true,
             "type": "string",
-            "description": "Nombre de la especie (ej: bulbasaur, charmander)"
+            "description": "Nombre de la especie en inglés. Ejemplos: bulbasaur, charmander, pikachu"
           }
         ],
         "responses": {
           "200": {
-            "description": "Datos de la especie obtenidos correctamente."
+            "description": "Datos de la especie obtenidos correctamente.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "integer"
+                        },
+                        "example": {
+                          "type": "number",
+                          "example": 1
+                        }
+                      }
+                    },
+                    "name": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "bulbasaur"
+                        }
+                      }
+                    },
+                    "is_legendary": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "boolean"
+                        },
+                        "example": {
+                          "type": "boolean",
+                          "example": false
+                        }
+                      }
+                    },
+                    "is_mythical": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "boolean"
+                        },
+                        "example": {
+                          "type": "boolean",
+                          "example": false
+                        }
+                      }
+                    },
+                    "generation": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "object"
+                        },
+                        "properties": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "string",
+                                  "example": "string"
+                                },
+                                "example": {
+                                  "type": "string",
+                                  "example": "generation-i"
+                                }
+                              }
+                            },
+                            "url": {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "string",
+                                  "example": "string"
+                                },
+                                "example": {
+                                  "type": "string",
+                                  "example": "https://pokeapi.co/api/v2/generation/1/"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "evolution_chain": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "object"
+                        },
+                        "properties": {
+                          "type": "object",
+                          "properties": {
+                            "url": {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "string",
+                                  "example": "string"
+                                },
+                                "example": {
+                                  "type": "string",
+                                  "example": "https://pokeapi.co/api/v2/evolution-chain/1/"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "flavor_text_entries": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "array"
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Entradas de texto de la Pokédex en distintos juegos e idiomas"
+                        },
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "object"
+                            },
+                            "properties": {
+                              "type": "object",
+                              "properties": {
+                                "flavor_text": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "example": "string"
+                                    },
+                                    "example": {
+                                      "type": "string",
+                                      "example": "A strange seed was planted on its back at birth."
+                                    }
+                                  }
+                                },
+                                "language": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "example": "object"
+                                    },
+                                    "properties": {
+                                      "type": "object",
+                                      "properties": {
+                                        "name": {
+                                          "type": "object",
+                                          "properties": {
+                                            "type": {
+                                              "type": "string",
+                                              "example": "string"
+                                            },
+                                            "example": {
+                                              "type": "string",
+                                              "example": "en"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "version": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "example": "object"
+                                    },
+                                    "properties": {
+                                      "type": "object",
+                                      "properties": {
+                                        "name": {
+                                          "type": "object",
+                                          "properties": {
+                                            "type": {
+                                              "type": "string",
+                                              "example": "string"
+                                            },
+                                            "example": {
+                                              "type": "string",
+                                              "example": "red"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
           },
           "404": {
-            "description": "Especie no encontrada."
+            "description": "Especie no encontrada.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "Especie no encontrada"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
           },
           "500": {
-            "description": "Error interno del servidor."
+            "description": "Error interno del servidor.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "Error interno del servidor"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
           }
         }
       }
@@ -195,25 +1506,222 @@
           "Encuentros"
         ],
         "summary": "Obtiene las ubicaciones donde aparece un Pokémon",
-        "description": "Devuelve la lista de zonas del mapa en los juegos donde puede encontrarse el Pokémon indicado.",
+        "description": "Devuelve la lista de zonas del mapa en los distintos juegos de la saga donde puede encontrarse el Pokémon indicado en estado salvaje.",
         "parameters": [
           {
             "name": "name",
             "in": "path",
             "required": true,
             "type": "string",
-            "description": "Nombre del Pokémon (ej: pikachu)"
+            "description": "Nombre del Pokémon en inglés. Ejemplos: pikachu, mewtwo, snorlax"
           }
         ],
         "responses": {
           "200": {
-            "description": "Lista de encuentros obtenida correctamente."
+            "description": "Lista de ubicaciones obtenida correctamente. Puede ser un array vacío si el Pokémon no aparece en ninguna zona salvaje.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "array"
+                },
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "example": "object"
+                    },
+                    "properties": {
+                      "type": "object",
+                      "properties": {
+                        "location_area": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "object"
+                            },
+                            "properties": {
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "example": "string"
+                                    },
+                                    "example": {
+                                      "type": "string",
+                                      "example": "viridian-forest-area"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "example": "string"
+                                    },
+                                    "example": {
+                                      "type": "string",
+                                      "example": "https://pokeapi.co/api/v2/location-area/321/"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "version_details": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "array"
+                            },
+                            "description": {
+                              "type": "string",
+                              "example": "Detalles por versión del juego"
+                            },
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "string",
+                                  "example": "object"
+                                },
+                                "properties": {
+                                  "type": "object",
+                                  "properties": {
+                                    "max_chance": {
+                                      "type": "object",
+                                      "properties": {
+                                        "type": {
+                                          "type": "string",
+                                          "example": "integer"
+                                        },
+                                        "example": {
+                                          "type": "number",
+                                          "example": 10
+                                        },
+                                        "description": {
+                                          "type": "string",
+                                          "example": "Probabilidad máxima de encuentro (%)"
+                                        }
+                                      }
+                                    },
+                                    "version": {
+                                      "type": "object",
+                                      "properties": {
+                                        "type": {
+                                          "type": "string",
+                                          "example": "object"
+                                        },
+                                        "properties": {
+                                          "type": "object",
+                                          "properties": {
+                                            "name": {
+                                              "type": "object",
+                                              "properties": {
+                                                "type": {
+                                                  "type": "string",
+                                                  "example": "string"
+                                                },
+                                                "example": {
+                                                  "type": "string",
+                                                  "example": "red"
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
           },
           "404": {
-            "description": "Pokémon no encontrado."
+            "description": "Pokémon no encontrado.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "Pokémon no encontrado"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
           },
           "500": {
-            "description": "Error interno del servidor."
+            "description": "Error interno del servidor.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "Error interno del servidor"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
           }
         }
       }
@@ -224,25 +1732,1644 @@
           "Generaciones"
         ],
         "summary": "Obtiene información de una generación de Pokémon",
-        "description": "Devuelve los Pokémon y movimientos introducidos en la generación indicada.",
+        "description": "Devuelve el listado de Pokémon y movimientos introducidos en la generación indicada, junto con los juegos que la representan.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
             "type": "integer",
-            "description": "Número de generación del 1 al 9 (ej: 1)"
+            "description": "Número de generación entre 1 y 9. Ejemplos: 1 (Rojo/Azul), 2 (Oro/Plata), 3 (Rubí/Zafiro)"
           }
         ],
         "responses": {
           "200": {
-            "description": "Datos de la generación obtenidos correctamente."
+            "description": "Datos de la generación obtenidos correctamente.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "integer"
+                        },
+                        "example": {
+                          "type": "number",
+                          "example": 1
+                        }
+                      }
+                    },
+                    "name": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "generation-i"
+                        }
+                      }
+                    },
+                    "main_region": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "object"
+                        },
+                        "properties": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "string",
+                                  "example": "string"
+                                },
+                                "example": {
+                                  "type": "string",
+                                  "example": "kanto"
+                                }
+                              }
+                            },
+                            "url": {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "string",
+                                  "example": "string"
+                                },
+                                "example": {
+                                  "type": "string",
+                                  "example": "https://pokeapi.co/api/v2/region/1/"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "version_groups": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "array"
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Juegos que pertenecen a esta generación"
+                        },
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "object"
+                            },
+                            "properties": {
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "example": "string"
+                                    },
+                                    "example": {
+                                      "type": "string",
+                                      "example": "red-blue"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "example": "string"
+                                    },
+                                    "example": {
+                                      "type": "string",
+                                      "example": "https://pokeapi.co/api/v2/version-group/1/"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "pokemon_species": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "array"
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Pokémon introducidos en esta generación"
+                        },
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "object"
+                            },
+                            "properties": {
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "example": "string"
+                                    },
+                                    "example": {
+                                      "type": "string",
+                                      "example": "bulbasaur"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "example": "string"
+                                    },
+                                    "example": {
+                                      "type": "string",
+                                      "example": "https://pokeapi.co/api/v2/pokemon-species/1/"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
           },
           "404": {
-            "description": "Generación no encontrada."
+            "description": "Generación no encontrada.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "Generación no encontrada"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
           },
           "500": {
-            "description": "Error interno del servidor."
+            "description": "Error interno del servidor.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "Error interno del servidor"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Pokemon": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "example": "object"
+        },
+        "description": {
+          "type": "string",
+          "example": "Datos completos de un Pokémon individual retornados por /api/pokemon/:name"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "integer"
+                },
+                "example": {
+                  "type": "number",
+                  "example": 25
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Identificador numérico único del Pokémon en la Pokédex Nacional"
+                }
+              }
+            },
+            "name": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "example": {
+                  "type": "string",
+                  "example": "pikachu"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Nombre del Pokémon en minúsculas y sin acentos"
+                }
+              }
+            },
+            "height": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "integer"
+                },
+                "example": {
+                  "type": "number",
+                  "example": 4
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Altura del Pokémon expresada en decímetros (4 = 0,4 metros)"
+                }
+              }
+            },
+            "weight": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "integer"
+                },
+                "example": {
+                  "type": "number",
+                  "example": 60
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Peso del Pokémon expresado en hectogramos (60 = 6 kg)"
+                }
+              }
+            },
+            "sprites": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "URLs de las imágenes oficiales del Pokémon"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "front_default": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "URL de la imagen frontal por defecto del Pokémon"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "types": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "array"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Lista de tipos del Pokémon. Un Pokémon puede tener uno o dos tipos"
+                },
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "example": "object"
+                    },
+                    "properties": {
+                      "type": "object",
+                      "properties": {
+                        "slot": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "integer"
+                            },
+                            "example": {
+                              "type": "number",
+                              "example": 1
+                            },
+                            "description": {
+                              "type": "string",
+                              "example": "Posición del tipo (1 = tipo primario, 2 = tipo secundario)"
+                            }
+                          }
+                        },
+                        "type": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "object"
+                            },
+                            "properties": {
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "example": "string"
+                                    },
+                                    "example": {
+                                      "type": "string",
+                                      "example": "electric"
+                                    },
+                                    "description": {
+                                      "type": "string",
+                                      "example": "Nombre del tipo en inglés"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "example": "string"
+                                    },
+                                    "example": {
+                                      "type": "string",
+                                      "example": "https://pokeapi.co/api/v2/type/13/"
+                                    },
+                                    "description": {
+                                      "type": "string",
+                                      "example": "URL del recurso del tipo en PokéAPI"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "abilities": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "array"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Lista de habilidades del Pokémon"
+                },
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "example": "object"
+                    },
+                    "properties": {
+                      "type": "object",
+                      "properties": {
+                        "ability": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "object"
+                            },
+                            "properties": {
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "example": "string"
+                                    },
+                                    "example": {
+                                      "type": "string",
+                                      "example": "static"
+                                    },
+                                    "description": {
+                                      "type": "string",
+                                      "example": "Nombre de la habilidad en inglés"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "example": "string"
+                                    },
+                                    "example": {
+                                      "type": "string",
+                                      "example": "https://pokeapi.co/api/v2/ability/9/"
+                                    },
+                                    "description": {
+                                      "type": "string",
+                                      "example": "URL del recurso de la habilidad"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "is_hidden": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "boolean"
+                            },
+                            "example": {
+                              "type": "boolean",
+                              "example": false
+                            },
+                            "description": {
+                              "type": "string",
+                              "example": "Indica si es una habilidad oculta (solo obtenible por métodos especiales)"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "PokemonListItem": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "example": "object"
+        },
+        "description": {
+          "type": "string",
+          "example": "Elemento de la lista paginada retornada por /api/pokemon"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "example": {
+                  "type": "string",
+                  "example": "bulbasaur"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Nombre del Pokémon"
+                }
+              }
+            },
+            "url": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "example": {
+                  "type": "string",
+                  "example": "https://pokeapi.co/api/v2/pokemon/1/"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "URL para obtener los datos completos del Pokémon en PokéAPI"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Tipo": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "example": "object"
+        },
+        "description": {
+          "type": "string",
+          "example": "Datos de un tipo de Pokémon retornados por /api/type/:name"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "integer"
+                },
+                "example": {
+                  "type": "number",
+                  "example": 10
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Identificador numérico del tipo"
+                }
+              }
+            },
+            "name": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "example": {
+                  "type": "string",
+                  "example": "fire"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Nombre del tipo en inglés"
+                }
+              }
+            },
+            "damage_relations": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Relaciones de efectividad del tipo contra otros tipos"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "double_damage_to": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "array"
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Tipos a los que este tipo hace el doble de daño"
+                        },
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "object"
+                            },
+                            "properties": {
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "example": "string"
+                                    },
+                                    "example": {
+                                      "type": "string",
+                                      "example": "grass"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "half_damage_to": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "array"
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Tipos a los que este tipo hace la mitad de daño"
+                        },
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "object"
+                            },
+                            "properties": {
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "example": "string"
+                                    },
+                                    "example": {
+                                      "type": "string",
+                                      "example": "fire"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "double_damage_from": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "array"
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Tipos que hacen el doble de daño a este tipo"
+                        },
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "object"
+                            },
+                            "properties": {
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "example": "string"
+                                    },
+                                    "example": {
+                                      "type": "string",
+                                      "example": "water"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Habilidad": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "example": "object"
+        },
+        "description": {
+          "type": "string",
+          "example": "Datos de una habilidad Pokémon retornados por /api/ability/:name"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "integer"
+                },
+                "example": {
+                  "type": "number",
+                  "example": 66
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Identificador numérico de la habilidad"
+                }
+              }
+            },
+            "name": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "example": {
+                  "type": "string",
+                  "example": "blaze"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Nombre de la habilidad en inglés"
+                }
+              }
+            },
+            "effect_entries": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "array"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Descripciones del efecto de la habilidad en distintos idiomas"
+                },
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "example": "object"
+                    },
+                    "properties": {
+                      "type": "object",
+                      "properties": {
+                        "effect": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "string"
+                            },
+                            "example": {
+                              "type": "string",
+                              "example": "When the Pokémon has 1/3 or less HP, its fire moves do 1.5× damage."
+                            },
+                            "description": {
+                              "type": "string",
+                              "example": "Descripción larga del efecto"
+                            }
+                          }
+                        },
+                        "short_effect": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "string"
+                            },
+                            "example": {
+                              "type": "string",
+                              "example": "Strengthens fire moves to 1.5× at 1/3 HP or less."
+                            },
+                            "description": {
+                              "type": "string",
+                              "example": "Descripción corta del efecto"
+                            }
+                          }
+                        },
+                        "language": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "object"
+                            },
+                            "properties": {
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "example": "string"
+                                    },
+                                    "example": {
+                                      "type": "string",
+                                      "example": "en"
+                                    },
+                                    "description": {
+                                      "type": "string",
+                                      "example": "Código del idioma"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Especie": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "example": "object"
+        },
+        "description": {
+          "type": "string",
+          "example": "Datos de la especie de un Pokémon retornados por /api/pokemon-species/:name"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "integer"
+                },
+                "example": {
+                  "type": "number",
+                  "example": 1
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Identificador numérico de la especie"
+                }
+              }
+            },
+            "name": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "example": {
+                  "type": "string",
+                  "example": "bulbasaur"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Nombre de la especie"
+                }
+              }
+            },
+            "is_legendary": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "boolean"
+                },
+                "example": {
+                  "type": "boolean",
+                  "example": false
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Indica si el Pokémon es legendario"
+                }
+              }
+            },
+            "is_mythical": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "boolean"
+                },
+                "example": {
+                  "type": "boolean",
+                  "example": false
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Indica si el Pokémon es mítico"
+                }
+              }
+            },
+            "generation": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Generación en la que fue introducido el Pokémon"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "generation-i"
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Nombre de la generación"
+                        }
+                      }
+                    },
+                    "url": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "https://pokeapi.co/api/v2/generation/1/"
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "URL del recurso de la generación"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "evolution_chain": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Referencia a la cadena evolutiva del Pokémon"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "https://pokeapi.co/api/v2/evolution-chain/1/"
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "URL de la cadena evolutiva completa"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "flavor_text_entries": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "array"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Textos de la Pokédex del Pokémon en distintos juegos e idiomas"
+                },
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "example": "object"
+                    },
+                    "properties": {
+                      "type": "object",
+                      "properties": {
+                        "flavor_text": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "string"
+                            },
+                            "example": {
+                              "type": "string",
+                              "example": "A strange seed was planted on its back at birth."
+                            },
+                            "description": {
+                              "type": "string",
+                              "example": "Texto descriptivo del Pokémon"
+                            }
+                          }
+                        },
+                        "language": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "object"
+                            },
+                            "properties": {
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "example": "string"
+                                    },
+                                    "example": {
+                                      "type": "string",
+                                      "example": "en"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "version": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "object"
+                            },
+                            "properties": {
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "example": "string"
+                                    },
+                                    "example": {
+                                      "type": "string",
+                                      "example": "red"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Encuentro": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "example": "object"
+        },
+        "description": {
+          "type": "string",
+          "example": "Ubicación donde puede encontrarse un Pokémon en estado salvaje, retornado por /api/encounters/:name"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "location_area": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Zona del mapa donde aparece el Pokémon"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "viridian-forest-area"
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Nombre de la zona en formato slug"
+                        }
+                      }
+                    },
+                    "url": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "https://pokeapi.co/api/v2/location-area/321/"
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "URL del recurso de la zona"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "version_details": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "array"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Detalles del encuentro por versión del juego"
+                },
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "example": "object"
+                    },
+                    "properties": {
+                      "type": "object",
+                      "properties": {
+                        "max_chance": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "integer"
+                            },
+                            "example": {
+                              "type": "number",
+                              "example": 10
+                            },
+                            "description": {
+                              "type": "string",
+                              "example": "Probabilidad máxima de encuentro expresada en porcentaje"
+                            }
+                          }
+                        },
+                        "version": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "object"
+                            },
+                            "properties": {
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "example": "string"
+                                    },
+                                    "example": {
+                                      "type": "string",
+                                      "example": "red"
+                                    },
+                                    "description": {
+                                      "type": "string",
+                                      "example": "Nombre del juego (versión)"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Generacion": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "example": "object"
+        },
+        "description": {
+          "type": "string",
+          "example": "Datos de una generación de Pokémon retornados por /api/generation/:id"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "integer"
+                },
+                "example": {
+                  "type": "number",
+                  "example": 1
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Identificador numérico de la generación"
+                }
+              }
+            },
+            "name": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "example": {
+                  "type": "string",
+                  "example": "generation-i"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Nombre de la generación en formato slug"
+                }
+              }
+            },
+            "main_region": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Región principal asociada a esta generación"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "kanto"
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Nombre de la región"
+                        }
+                      }
+                    },
+                    "url": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "https://pokeapi.co/api/v2/region/1/"
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "URL del recurso de la región"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "version_groups": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "array"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Grupos de juegos que pertenecen a esta generación"
+                },
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "example": "object"
+                    },
+                    "properties": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "string"
+                            },
+                            "example": {
+                              "type": "string",
+                              "example": "red-blue"
+                            },
+                            "description": {
+                              "type": "string",
+                              "example": "Nombre del grupo de juegos"
+                            }
+                          }
+                        },
+                        "url": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "string"
+                            },
+                            "example": {
+                              "type": "string",
+                              "example": "https://pokeapi.co/api/v2/version-group/1/"
+                            },
+                            "description": {
+                              "type": "string",
+                              "example": "URL del recurso del grupo"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "pokemon_species": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "array"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Pokémon introducidos por primera vez en esta generación"
+                },
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "example": "object"
+                    },
+                    "properties": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "string"
+                            },
+                            "example": {
+                              "type": "string",
+                              "example": "bulbasaur"
+                            },
+                            "description": {
+                              "type": "string",
+                              "example": "Nombre del Pokémon"
+                            }
+                          }
+                        },
+                        "url": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "string"
+                            },
+                            "example": {
+                              "type": "string",
+                              "example": "https://pokeapi.co/api/v2/pokemon-species/1/"
+                            },
+                            "description": {
+                              "type": "string",
+                              "example": "URL del recurso de la especie"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Error": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "example": "object"
+        },
+        "description": {
+          "type": "string",
+          "example": "Estructura de respuesta cuando ocurre un error"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "error": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "example": {
+                  "type": "string",
+                  "example": "Pokémon no encontrado"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Mensaje descriptivo del error ocurrido"
+                }
+              }
+            }
           }
         }
       }
