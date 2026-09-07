@@ -1,0 +1,16 @@
+{
+  "name": "tp5-dai-pokedex-swagger",
+  "version": "1.0.0",
+  "description": "Mini Pokédex con servidor proxy Express y documentación Swagger",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "swagger": "node swagger.js"
+  },
+  "dependencies": {
+    "express": "4.18.2",
+    "node-fetch": "2.7.0",
+    "swagger-autogen": "2.23.7",
+    "swagger-ui-express": "5.0.0"
+  }
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mini Pokédex</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Mini Pokédex</h1>
+
+        <div class="buscador">
+            <input type="text" id="inputPokemon" placeholder="Ej: pikachu">
+            <button id="btnBuscar">Buscar</button>
+        </div>
+
+        <p id="loading" class="hidden">Cargando...</p>
+        <p id="error" class="error hidden"></p>
+
+        <div id="pokemonCard" class="card hidden">
+            <h2 id="nombre"></h2>
+            <img id="imagen" src="" alt="pokemon">
+            <p><strong>Tipo:</strong> <span id="tipo"></span></p>
+            <p><strong>Peso:</strong> <span id="peso"></span></p>
+            <p><strong>Altura:</strong> <span id="altura"></span></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
