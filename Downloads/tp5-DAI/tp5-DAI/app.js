@@ -1,11 +1,16 @@
 const express = require("express");
 const fetch = require("node-fetch");
+const https = require("https");
 const swaggerUi = require("swagger-ui-express");
 const swaggerFile = require("./swagger-output.json");
 
 const app = express();
 const PORT = 3000;
 const POKEAPI_BASE = "https://pokeapi.co/api/v2";
+
+// Agente HTTPS que ignora errores de certificado SSL autofirmado
+// (necesario en redes con proxy corporativo/universitario)
+const httpsAgent = new https.Agent({ rejectUnauthorized: false });
 
 // Middlewares
 app.use(express.json());
@@ -85,7 +90,7 @@ app.get("/api/pokemon/:name", async (req, res) => {
        schema: { type: 'object', properties: { error: { type: 'string', example: 'Error interno del servidor' } } }
      } */
   try {
-    const response = await fetch(`${POKEAPI_BASE}/pokemon/${req.params.name}`);
+    const response = await fetch(`${POKEAPI_BASE}/pokemon/${req.params.name}`, { agent: httpsAgent });
     if (!response.ok) return res.status(404).json({ error: "Pokémon no encontrado" });
     const data = await response.json();
     res.json(data);
@@ -141,7 +146,7 @@ app.get("/api/pokemon", async (req, res) => {
      } */
   try {
     const { limit = 20, offset = 0 } = req.query;
-    const response = await fetch(`${POKEAPI_BASE}/pokemon?limit=${limit}&offset=${offset}`);
+    const response = await fetch(`${POKEAPI_BASE}/pokemon?limit=${limit}&offset=${offset}`, { agent: httpsAgent });
     const data = await response.json();
     res.json(data);
   } catch (err) {
@@ -205,7 +210,7 @@ app.get("/api/type/:name", async (req, res) => {
        schema: { type: 'object', properties: { error: { type: 'string', example: 'Error interno del servidor' } } }
      } */
   try {
-    const response = await fetch(`${POKEAPI_BASE}/type/${req.params.name}`);
+    const response = await fetch(`${POKEAPI_BASE}/type/${req.params.name}`, { agent: httpsAgent });
     if (!response.ok) return res.status(404).json({ error: "Tipo no encontrado" });
     const data = await response.json();
     res.json(data);
@@ -277,7 +282,7 @@ app.get("/api/ability/:name", async (req, res) => {
        schema: { type: 'object', properties: { error: { type: 'string', example: 'Error interno del servidor' } } }
      } */
   try {
-    const response = await fetch(`${POKEAPI_BASE}/ability/${req.params.name}`);
+    const response = await fetch(`${POKEAPI_BASE}/ability/${req.params.name}`, { agent: httpsAgent });
     if (!response.ok) return res.status(404).json({ error: "Habilidad no encontrada" });
     const data = await response.json();
     res.json(data);
@@ -344,7 +349,7 @@ app.get("/api/pokemon-species/:name", async (req, res) => {
        schema: { type: 'object', properties: { error: { type: 'string', example: 'Error interno del servidor' } } }
      } */
   try {
-    const response = await fetch(`${POKEAPI_BASE}/pokemon-species/${req.params.name}`);
+    const response = await fetch(`${POKEAPI_BASE}/pokemon-species/${req.params.name}`, { agent: httpsAgent });
     if (!response.ok) return res.status(404).json({ error: "Especie no encontrada" });
     const data = await response.json();
     res.json(data);
@@ -406,7 +411,7 @@ app.get("/api/encounters/:name", async (req, res) => {
        schema: { type: 'object', properties: { error: { type: 'string', example: 'Error interno del servidor' } } }
      } */
   try {
-    const response = await fetch(`${POKEAPI_BASE}/pokemon/${req.params.name}/encounters`);
+    const response = await fetch(`${POKEAPI_BASE}/pokemon/${req.params.name}/encounters`, { agent: httpsAgent });
     if (!response.ok) return res.status(404).json({ error: "Pokémon no encontrado" });
     const data = await response.json();
     res.json(data);
@@ -475,7 +480,7 @@ app.get("/api/generation/:id", async (req, res) => {
        schema: { type: 'object', properties: { error: { type: 'string', example: 'Error interno del servidor' } } }
      } */
   try {
-    const response = await fetch(`${POKEAPI_BASE}/generation/${req.params.id}`);
+    const response = await fetch(`${POKEAPI_BASE}/generation/${req.params.id}`, { agent: httpsAgent });
     if (!response.ok) return res.status(404).json({ error: "Generación no encontrada" });
     const data = await response.json();
     res.json(data);
